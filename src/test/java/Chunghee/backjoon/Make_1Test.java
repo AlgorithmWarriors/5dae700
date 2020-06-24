@@ -1,5 +1,5 @@
-package Chunghee;
-import Chunghee.backjoon.Make_1;
+package Chunghee.backjoon;
+import Chunghee.backjoon.DynamicPrograming.Make_1;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;

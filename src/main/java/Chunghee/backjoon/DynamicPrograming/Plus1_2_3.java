@@ -1,4 +1,4 @@
-package Chunghee.backjoon;
+package Chunghee.backjoon.DynamicPrograming;
 
 public class Plus1_2_3 {
     public int solution(int numbers) {

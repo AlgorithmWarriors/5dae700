@@ -1,4 +1,4 @@
-package Chunghee.backjoon;
+package Chunghee.backjoon.DynamicPrograming;
 
 
 public class Make_1 {
