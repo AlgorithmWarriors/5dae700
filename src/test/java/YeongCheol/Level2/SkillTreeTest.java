@@ -1,6 +1,5 @@
 package YeongCheol.Level2;
 
-import YeongCheol.Level1.CrainDollPulling;
 import YeongCheol.Level2.SkillTree;
 import org.junit.Test;
 
