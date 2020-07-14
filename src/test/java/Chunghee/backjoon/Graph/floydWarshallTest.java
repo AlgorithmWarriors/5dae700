@@ -7,6 +7,7 @@ public class floydWarshallTest {
     @Test
     public void 플로이드와샬테스트(){
         FloydWarshall floydWarshall = new FloydWarshall();
+
         int[][] route = {
                 {1,2,2},
                 {1,3,3},
