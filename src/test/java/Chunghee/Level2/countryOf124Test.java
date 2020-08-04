@@ -1,4 +1,4 @@
-package Chunghee;
+package Chunghee.Level2;
 
 import Chunghee.Level2.countryOf124;
 import org.junit.Test;
