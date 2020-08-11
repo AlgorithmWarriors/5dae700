@@ -1,19 +1,15 @@
 package Chunghee.Level2;
 
 import java.util.Arrays;
+import java.util.HashSet;
 
 public class Phonketmon {
     public int solution(int[] nums) {
         int answer = 0;
-        int[] num = new int[200000];
-        Arrays.fill(num,0);
+        HashSet<Integer> myHash = new HashSet<>();
         for(int i = 0;i<nums.length;i++){
-            num[nums[i]-1]++;
+            myHash.add(nums[i]);
         }
-        for(int i = 0;i<num.length;i++){
-            if(num[i]!=0)answer++;
-        }
-
-        return Math.max(answer,nums.length/2);
+        return Math.min(myHash.size(),nums.length/2);
     }
 }
