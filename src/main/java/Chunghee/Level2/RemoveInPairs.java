@@ -6,7 +6,7 @@ public class RemoveInPairs {
     public int solution(String s)
     {
         char[] myString = s.toCharArray();
-        if(s.length()/2*2==s.length())return 0;
+        if(s.length()/2*2!=s.length())return 0;
         Stack<Character> myStack = new Stack<>();
         myStack.push(myString[0]);
         for(int i=1; i<myString.length;i++){
