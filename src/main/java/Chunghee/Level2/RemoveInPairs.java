@@ -1,26 +1,20 @@
 package Chunghee.Level2;
 
+import java.util.Stack;
+
 public class RemoveInPairs {
     public int solution(String s)
     {
-        int answer = 0;
         char[] myString = s.toCharArray();
-        int size = myString.length;
-        int CheckSize;
-        while (true){
-            CheckSize = size;
-
-            for(int i = 0 ;i<size-1;i++){
-                if(myString[i]==myString[i+1]){
-                    for(int j=i;j<size-2;j++)
-                        myString[j]=myString[j+2];
-                    size-=2;
-                }
-            }
-            if(size==0)return 1;
-            if(CheckSize==size) break;
+        if(s.length()/2*2==s.length())return 0;
+        Stack<Character> myStack = new Stack<>();
+        myStack.push(myString[0]);
+        for(int i=1; i<myString.length;i++){
+            if(myStack.isEmpty())myStack.push(myString[i]);
+            else if(myStack.peek()==myString[i])myStack.pop();
+            else myStack.push(myString[i]);
         }
-
-        return answer;
+        if(myStack.isEmpty())return 1;
+        else return 0;
     }
 }

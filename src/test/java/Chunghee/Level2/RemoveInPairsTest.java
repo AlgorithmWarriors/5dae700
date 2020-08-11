@@ -9,6 +9,8 @@ public class RemoveInPairsTest {
         RemoveInPairs removeInPairs = new RemoveInPairs();
         String[] myStrings = {"baabaa","cdcd"};
         int[] result = {1,0};
-        assertThat(removeInPairs.solution(myStrings[0]),is(result[0]));
+        for(int i=0;i<myStrings.length;i++) {
+            assertThat(removeInPairs.solution(myStrings[i]), is(result[i]));
+        }
     }
 }
