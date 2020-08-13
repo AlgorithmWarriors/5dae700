@@ -2,41 +2,34 @@ package Chunghee.Level2;
 
 public class StringCompresion {
     public int solution(String s) {
-        char[] word = s.toCharArray();
-        if (word.length==2)return 2;
-        int CompresionNumber=0;
-        int min=s.length();
-        String Startword ="";
-        String Endword ="";
+        if (s.length()<=2)return s.length();
+        int answer = s.length();
+        for(int i=1;i<=s.length()/2;i++){
+            String startword = "";
+            String endword = "";
+            String CompressionString = "";
+            int CompressionNumber = 1;
+            for(int j=0;j<=s.length()/i;j++){
+                int start = j * i;
+                int end = i * (j + 1) > s.length() ? s.length() : i * (j + 1);
+                startword = endword;
+                endword = s.substring(start, end);
 
-        for(int i=1;i<s.length()/2+1;i++){
-            int thismin = s.length();
-            for(int j=0;j<s.length()-2*i+1;j=j+i){
-                Startword=makeString(word,i,j);
-                Endword =makeString(word,i,j+i);
-                if(Startword.equals(Endword)){
-                    CompresionNumber++;
-                    thismin=thismin-i;
+                if(startword.equals(endword)) {
+                    CompressionNumber++;
+                } else {
+                    CompressionString += (processHit(CompressionNumber) + startword);
+                    CompressionNumber = 1;
                 }
-                else if(CompresionNumber!=0){
-                    thismin++;
-                    CompresionNumber=0;
-                }
-            }
-            if(CompresionNumber!=0){
-                thismin++;
-            }
 
-            if (thismin<min)min=thismin;
+            }
+            CompressionString +=(processHit(CompressionNumber)+endword);
+            answer = Math.min(answer,CompressionString.length());
+
         }
-        return min;
+        return answer;
     }
-
-    private String makeString(char[] word, int i,int t) {
-        String myString = "";
-        for(int k=0;k<i;k++){
-            myString = myString + word[k+t];
-        }
-        return myString;
+    private static String processHit(int hit) {
+        return hit > 1 ? String.valueOf(hit) : "";
     }
 }
