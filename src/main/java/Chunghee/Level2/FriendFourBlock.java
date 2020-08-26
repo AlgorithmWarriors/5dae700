@@ -3,38 +3,53 @@ package Chunghee.Level2;
 import java.util.Arrays;
 
 public class FriendFourBlock {
+
     static char[][] myboard;
     static boolean[][] visited;
+
     public int solution(int m, int n, String[] board) {
         int answer = 0;
-        int beforeNumber = 0;
+        int beforeAnswer = 0;
         myboard = new char[m][n];
         visited = new boolean[m][n];
 
         for(int i=0;i<m;i++){
             myboard[i]=board[i].toCharArray();
         }
+        initArrays();
+        while (true){
+            beforeAnswer = answer;
+            DoPang(m, n);
+            answer = getPoint(m, n, answer);
+            DropBlock();
+            if(beforeAnswer==answer) break;
+        }
+        return answer;
+    }
+
+    public void initArrays() {
         for(int i=0;i<visited.length;i++) {
             Arrays.fill(visited[i], false);
         }
-        while (true){
-            beforeNumber = answer;
-            for(int i=0;i<m-1;i++){
-                for(int j=0;j<n-1;j++){
-                    pang(i,j);
+    }
+
+    public void DoPang(int m, int n) {
+        for(int i=0;i<m-1;i++){
+            for(int j=0;j<n-1;j++){
+                pang(i,j);
+            }
+        }
+    }
+
+    public int getPoint(int m, int n, int answer) {
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                if(visited[i][j]){
+                    myboard[i][j]='0';
+                    visited[i][j]=false;
+                    answer++;
                 }
             }
-            for(int i=0;i<m;i++){
-                for(int j=0;j<n;j++){
-                    if(visited[i][j]){
-                        myboard[i][j]='0';
-                        visited[i][j]=false;
-                        answer++;
-                    }
-                }
-            }
-            DropBlock();
-            if(beforeNumber==answer) break;
         }
         return answer;
     }
