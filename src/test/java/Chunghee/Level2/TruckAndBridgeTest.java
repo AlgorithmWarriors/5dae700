@@ -1,4 +1,4 @@
-package Chunghee;
+package Chunghee.Level2;
 
 import Chunghee.Level2.TruckAndBridge;
 import org.junit.Test;
