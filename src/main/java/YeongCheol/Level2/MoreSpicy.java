@@ -10,7 +10,7 @@ public class MoreSpicy {
         {
             minHeap.offer(input);
         }
-        while(minHeap.size() >= 2 && K > minHeap.peek())
+        while(minHeap.size() >= 2 && K >= minHeap.peek())
         {
             int first = minHeap.poll();
             int second = minHeap.poll();
@@ -18,7 +18,7 @@ public class MoreSpicy {
             minHeap.offer(mix);
             answer++;
         }
-        if(K > minHeap.peek())
+        if(K >= minHeap.peek())
         {
             return -1;
         }
